@@ -1,5 +1,5 @@
 /*
-  线性查找法: 就是遍历数组
+   类
 */
 public class LinearSearch{
   public static void main(String[] args){
@@ -16,25 +16,29 @@ public class LinearSearch{
     int res3 = LinearSearch.searchGen(dataGen,16);
     System.out.println(res3);
 
+
+    Student[] student = {new Student("Alice"),new Student("Alice"),new Student("Bobo")};
+	System.out.println(student);
+    int res5 = LinearSearch.searchGen(student,"Bobo");
+    System.out.println(res5);
+
+
   }
 
   public static int search(int[] data,int target){
 
-    for(int i = 0;i < data.length;i++){
-      // == 判断的是引用相等  
-      // equals 指的是值是否相同
-      if(data[i].equals(target)){
+    for(int i = 0;i < data.length;i++){     
+	  if(data[i] == target){
         return i;
       }
     }
     return -1;
 
   }
-  // 使用泛型，不可以是基本数据类型，只能是类
   public static <E> int searchGen(E[] data,E target){
     
     for(int i = 0;i < data.length;i++){
-      if(data[i] == target){
+      if(data[i].equals(target)){
         return i;
       }
     }
